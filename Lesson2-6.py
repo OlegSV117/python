@@ -19,23 +19,19 @@
 #     “количество”: [5, 2, 7],
 #     “ед”: [“шт.”]
 # }
-my_list = []
-result_list = []
-my_dict = {}
-my_dict1 = {}
+
+
+my_list = [(1, {"название": "компьютер", "цена": 20000, "количество": 5, "ед.": "шт."}),
+               (2, {"название": "принтер", "цена": 6000, "количество": 2, "ед.": "шт."}),
+               (3, {"название": "сканер", "цена": 2000, "количество": 7, "ед.": "шт."})]
+
 keys = ["название", "цена", "количество", "ед."]
-for i in [1, 2, 3]:
-    my_dict = my_dict.copy()
-    for k in keys:
-        if k == keys[1] or k == keys[2]:
-            my_dict[k] = int(input("Введите " + k + " " + str(i) + "-го товара:"))
-        else:
-            my_dict[k] = input("Введите " + k + " " + str(i) + "-го товара:")
-    my_list.append((i, my_dict))
-# сбор аналитики и построение словаря
+my_dict1 = {}
+my_dict1.clear()
+result_list = []
 for k in keys:
     result_list.clear()
     for i in [0, 1, 2]:
         result_list.append(my_list[i][1].get(k))
-    my_dict1.update({k: result_list[:]})
-    print({k: result_list[:]})
+    my_dict1.update({k : result_list.copy()})
+print(my_dict1)
